@@ -1,1 +1,3 @@
-SELECT user, host FROM mysql.user;
+use codeup_test_db;
+
+select * from albums;
