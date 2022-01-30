@@ -36,3 +36,6 @@ VALUES      ('Michael Jackson', 'Thriller', 1982, 'Pop, Rock, R&B', 47.3),
             ('Guns N'' Roses', 'Appetite for Destruction', 1987, 'Hard rock', 21.6);
 
 SELECT * FROM albums;
+
+INSERT INTO albums(artist, name)
+VALUES ('AC/DC', 'Back in Black');
