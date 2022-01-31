@@ -70,9 +70,31 @@ VALUES ('Joe', 'Burrow', 1, 'Quarterback' ),
        ('Bicker', 'Ballow', 2, 'Forward' );
 
 # uniqueness of all four items below. if all same entered, it will not continue
-       ALTER TABLE players
-       ADD UNIQUE (first_name, last_name, team_id, position);
+ALTER TABLE players
+ADD UNIQUE (first_name, last_name, team_id, position);
 
-       describe players;
 
-       describe employees;
+describe players;
+describe employees;
+
+# JOINS ---------------------------------------------------------------------------------------------------
+
+INSERT INTO teams (city, name)
+VALUES ('Cin', 'Bengals'),
+       ('Kansas City', 'Chiefs');
+
+select * from players;
+
+INSERT INTO players(first_name, last_name, team_id)
+VALUES ('Joe', 'Burrow', 1),
+       ('Bicker', 'Ballow', 2),
+       ('David', 'Stephens', NULL);
+
+# Records with the players full name and team they play with.
+SELECT CONCAT(p.first_name, ' ', p.last_name) AS full_name,
+       CONCAT(t.city, ' ', t.name) AS team_name
+# from left table, which is player
+FROM players AS p
+# this is the join
+JOIN teams AS t ON t.id = p.team_id;
+
